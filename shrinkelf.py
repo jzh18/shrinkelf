@@ -24,12 +24,12 @@ import copy
 import logging
 import os
 import time
-from typing import Optional, Tuple, Dict
+from typing import Dict, Optional, Tuple
 
 import gurobipy as gp
+from elfdefinitions import *
 from gurobipy import GRB
 
-from elfdefinitions import *
 from util import *
 
 # file suffix for output file appended to the input file when no output file was specified
@@ -992,6 +992,7 @@ def calculateNewFilelayout(ranges_13: List[List[FileFragment]], old_entries: int
                 raise Done()
             else:
                 if i == 0:
+                    print("ZHF: i == 0")
                     # Maybe there is space directly after the ELF header
                     current_start = 0
                     current_shift = 0
